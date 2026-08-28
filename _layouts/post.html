@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{% assign cat = site.data.categories | where: "slug", page.category | first %}
+<article class="post">
+  <div class="article-meta">
+    <span>{{ cat.name | default: page.category }}</span>
+    <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+  </div>
+  <h1>{{ page.title }}</h1>
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <p><a class="text-btn" href="{{ "/category/" | append: page.category | append: "/" | relative_url }}">← Πίσω στην κατηγορία «{{ cat.name | default: page.category }}»</a></p>
+</article>

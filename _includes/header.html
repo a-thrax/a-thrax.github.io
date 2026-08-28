@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ "/" | relative_url }}">
+      <span class="brand-mark">{{ site.title | slice: 0 }}</span>
+      <span>
+        <strong>{{ site.title }}</strong>
+        <small>{{ site.tagline }}</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Κύρια πλοήγηση">
+      {% for cat in site.data.categories %}
+      <a href="{{ "/category/" | append: cat.slug | append: "/" | relative_url }}">{{ cat.name }}</a>
+      {% endfor %}
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Άνοιγμα μενού">☰</button>
+  </div>
+</header>

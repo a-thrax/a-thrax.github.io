@@ -1,0 +1,19 @@
+# Displayed on the homepage and in the navigation menu.
+# "name" is Greek (shown to readers). "slug" is English and must match:
+#   - the "category:" value used in post front matter
+#   - the folder name under /category/
+- name: "Επικαιρότητα"
+  slug: current-affairs
+  desc: "Όσα συμβαίνουν τώρα."
+- name: "Κοινωνία"
+  slug: society
+  desc: "Άνθρωποι, σχέσεις, αλλαγές."
+- name: "Πολιτική"
+  slug: politics
+  desc: "Ιδέες, πρόσωπα και αποφάσεις."
+- name: "Ταξίδια"
+  slug: travel
+  desc: "Τόποι, διαδρομές, εμπειρίες."
+- name: "Διαχρονικά"
+  slug: timeless
+  desc: "Ζητήματα που επιστρέφουν."

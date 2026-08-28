@@ -1,0 +1,27 @@
+title: "Εν-Θράξει"
+tagline: "κείμενα · σκέψεις · διαδρομές"
+description: "Κείμενα και σκέψεις για επικαιρότητα, κοινωνία, πολιτική, ταξίδια και διαχρονικά ζητήματα."
+about: >
+  Η σελίδα είναι σχεδιασμένη ώστε να μεγαλώνει μαζί με τα κείμενά σου. Οι βασικές κατηγορίες
+  υπάρχουν από την αρχή, αλλά μπορούν να προστεθούν κι άλλες όποτε χρειαστεί.
+url: "https://a-thrax.gr"
+baseurl: ""
+lang: el
+theme: null
+
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - template
+  - README.md
+  - HOW-TO-ADD-AN-ARTICLE.md
+  - new-article-template.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules

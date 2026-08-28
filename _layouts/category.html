@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% assign cat = site.data.categories | where: "slug", page.category_slug | first %}
+{% assign posts = site.categories[page.category_slug] %}
+<section class="featured-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Κατηγορία</p>
+      <h2>{{ cat.name | default: page.title }}</h2>
+    </div>
+  </div>
+  <p class="category-intro">{{ cat.desc }}</p>
+  <div class="article-grid">
+    {% for post in posts %}
+      {% include article-card.html post=post %}
+    {% else %}
+      <p>Δεν υπάρχουν ακόμη κείμενα σε αυτή την κατηγορία.</p>
+    {% endfor %}
+  </div>
+</section>
