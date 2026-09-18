@@ -18,13 +18,13 @@ url: "https://a-thrax.gr"
 baseurl: ""
 lang: el
 theme: null
-logo: /assets/social-image.png
+logo: /assets/social-image.jpg
 
 defaults:
   - scope:
       path: ""
     values:
-      image: /assets/social-image.png
+      image: /assets/social-image.jpg
 
 permalink: /:year-:month-:day-:title.html
 
