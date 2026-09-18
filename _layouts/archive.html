@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<section class="featured-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Αρχείο</p>
+      <h2>{{ page.title }}</h2>
+    </div>
+  </div>
+  <div class="article-grid">
+    {% for post in site.posts %}
+      {% include article-card.html post=post %}
+    {% else %}
+      <p>Δεν υπάρχουν ακόμη κείμενα.</p>
+    {% endfor %}
+  </div>
+</section>

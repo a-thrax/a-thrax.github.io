@@ -2,7 +2,7 @@
 {% assign cat = site.data.categories | where: "slug", post.category | first %}
 <article class="article-card">
   <div class="article-meta">
-    <span>{{ cat.name | default: post.category }}</span>
+    {% if cat %}<span>{{ cat.name }}</span>{% endif %}
     <span>{{ post.date | date: "%d/%m/%Y" }}</span>
   </div>
   <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
