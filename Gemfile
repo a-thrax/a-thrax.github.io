@@ -1,10 +1,9 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.4"
 
-# Ruby 3.4+ no longer bundles these by default; jekyll/github-pages still need them.
-gem "csv"
-gem "logger"
-gem "base64"
-gem "bigdecimal"
-gem "webrick"
+group :jekyll_plugins do
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+end

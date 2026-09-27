@@ -23,8 +23,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
-          bundler-cache: true
+          bundler-cache: true # Ruby version comes from .ruby-version
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -32,8 +31,6 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-          # See bin/build for why this is required for our _plugins/ generator to run.
-          JEKYLL_NO_BUNDLER_REQUIRE: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
