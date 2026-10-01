@@ -1,0 +1,49 @@
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: posts
+    label: Άρθρα
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    view:
+      fields: [title, topic]
+    fields:
+      - { name: layout, type: string, hidden: true, default: post }
+      - { name: title, label: Τίτλος, type: string, required: true }
+      - name: slug
+        label: Σύντομο όνομα URL (αγγλικά, με παύλες)
+        type: string
+        required: true
+        pattern: { regex: "^[a-z0-9-]+$", message: "Μόνο λατινικά πεζά, αριθμοί και παύλες" }
+      - name: topic
+        label: Κατηγορία
+        type: reference
+        required: true
+        options:
+          collection: topics
+          search: name
+          value: "{fields.slug}"
+          label: "{fields.name}"
+      - { name: excerpt, label: Περίληψη, type: text }
+      - { name: body, label: Κείμενο, type: rich-text }
+
+  - name: topics
+    label: Κατηγορίες
+    type: collection
+    path: _topics
+    filename: "{fields.slug}.md"
+    view:
+      fields: [name, slug]
+    fields:
+      - { name: name, label: Όνομα, type: string, required: true }
+      - name: slug
+        label: Σύντομο όνομα URL (αγγλικά, με παύλες)
+        description: Μην το αλλάξετε αφού υπάρχουν άρθρα σε αυτή την κατηγορία.
+        type: string
+        required: true
+        pattern: { regex: "^[a-z0-9-]+$", message: "Μόνο λατινικά πεζά, αριθμοί και παύλες" }
+      - { name: desc, label: Περιγραφή, type: string }
+      - { name: order, label: Σειρά στο μενού, type: number, default: 10 }

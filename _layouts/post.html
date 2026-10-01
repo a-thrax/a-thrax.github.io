@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
-{% assign cat = site.data.categories | where: "slug", page.category | first %}
+{% assign topic = site.topics | where: "slug", page.topic | first %}
 <article class="post">
   <div class="article-meta">
-    {% if cat %}<span>{{ cat.name }}</span>{% endif %}
+    {% if topic %}<span>{{ topic.name }}</span>{% endif %}
     <span>{{ page.date | date: "%d/%m/%Y" }}</span>
   </div>
   <h1>{{ page.title }}</h1>
   <div class="post-content">
     {{ content }}
   </div>
-  {% if cat %}
-  <p><a class="text-btn" href="{{ "/" | append: page.category | append: "/" | relative_url }}">← Πίσω στην κατηγορία «{{ cat.name }}»</a></p>
+  {% if topic %}
+  <p><a class="text-btn" href="{{ "/" | append: page.topic | append: "/" | relative_url }}">← Πίσω στην κατηγορία «{{ topic.name }}»</a></p>
   {% else %}
   <p><a class="text-btn" href="{{ "/" | relative_url }}">← Πίσω στην αρχική</a></p>
   {% endif %}

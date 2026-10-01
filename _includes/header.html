@@ -10,8 +10,8 @@
     </a>
 
     <nav class="main-nav" aria-label="Κύρια πλοήγηση">
-      {% for cat in site.data.categories %}
-      <a href="{{ "/" | append: cat.slug | append: "/" | relative_url }}">{{ cat.name }}</a>
+      {% for topic in site.topics %}
+      <a href="{{ "/" | append: topic.slug | append: "/" | relative_url }}">{{ topic.name }}</a>
       {% endfor %}
       <a href="{{ "/about/" | relative_url }}">Σχετικά</a>
     </nav>

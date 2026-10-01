@@ -1,8 +1,8 @@
 {% assign post = include.post %}
-{% assign cat = site.data.categories | where: "slug", post.category | first %}
+{% assign topic = site.topics | where: "slug", post.topic | first %}
 <article class="article-card">
   <div class="article-meta">
-    {% if cat %}<span>{{ cat.name }}</span>{% endif %}
+    {% if topic %}<span>{{ topic.name }}</span>{% endif %}
     <span>{{ post.date | date: "%d/%m/%Y" }}</span>
   </div>
   <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

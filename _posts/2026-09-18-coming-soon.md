@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Είναι δύσκολος ο δρόμος"
-category: news
+topic: news
 excerpt: "Διαλέγεις θέση είτε θέλεις είτε όχι."
 ---
 
