@@ -34,8 +34,9 @@ That top section (between the two `---` lines) is called "front matter". Edit on
 |---|---|
 | `layout` | Leave as `post`. Don't change this. |
 | `title` | The article's title, in Greek, in quotes. |
-| `topic` | The category, written as its English slug. The available ones are the file names in the `_topics` folder, without `.md` (e.g. `_topics/travel.md` → `travel`). This decides which category page the article shows up on. |
-| `excerpt` | A one- or two-sentence summary, in Greek, in quotes. Shown on the homepage. |
+| `topic` | The category, written as its English slug. The available ones are the file names in the `_topics` folder, without `.md` (e.g. `_topics/travel.md` → `travel`). This decides where the article shows up: articles in the essays topic (`essays`) appear on the homepage and under "Τελευταία κείμενα"; every other topic appears only on its own category page. |
+| `date` | Optional. Publication date and time, e.g. `2026-10-02 18:30` (Greek time). Without it, the date in the file name is used. |
+| `excerpt` | A one- or two-sentence summary, in Greek, in quotes. Shown on the article cards (and on the homepage for essays). |
 
 ## 5. Write the article
 
@@ -69,7 +70,7 @@ The video will automatically resize to fit the page, including on phones.
 
 Scroll to the bottom of the page. Under "Commit changes", write a short message (e.g. "Add article about Crete trip") and click **Commit changes directly to the `main` branch**.
 
-That's it — GitHub Pages rebuilds the site automatically. The article appears on the homepage and its category page within a minute or two.
+That's it — GitHub Pages rebuilds the site automatically. An essay appears on the homepage and under "Τελευταία κείμενα"; any other article appears on its category page. Either way, within a minute or two.
 
 ## Adding a brand-new category
 

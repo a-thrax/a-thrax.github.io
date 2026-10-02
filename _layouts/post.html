@@ -11,7 +11,9 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-  {% if topic %}
+  {% if topic.featured %}
+  <p><a class="text-btn" href="{{ "/articles/" | relative_url }}">← Πίσω στα «{{ topic.name }}»</a></p>
+  {% elsif topic %}
   <p><a class="text-btn" href="{{ "/" | append: page.topic | append: "/" | relative_url }}">← Πίσω στην κατηγορία «{{ topic.name }}»</a></p>
   {% else %}
   <p><a class="text-btn" href="{{ "/" | relative_url }}">← Πίσω στην αρχική</a></p>

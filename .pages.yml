@@ -9,7 +9,11 @@ content:
     path: _posts
     filename: "{year}-{month}-{day}-{fields.slug}.md"
     view:
-      fields: [title, topic]
+      fields: [title, topic, date]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
     fields:
       - { name: layout, type: string, hidden: true, default: post }
       - { name: title, label: Τίτλος, type: string, required: true }
@@ -27,6 +31,12 @@ content:
           search: name
           value: "{fields.slug}"
           label: "{fields.name}"
+      - name: date
+        label: Ημερομηνία δημοσίευσης
+        type: date
+        options:
+          time: true
+          format: yyyy-MM-dd HH:mm
       - { name: excerpt, label: Περίληψη, type: text }
       - { name: body, label: Κείμενο, type: rich-text }
 
@@ -47,3 +57,8 @@ content:
         pattern: { regex: "^[a-z0-9-]+$", message: "Μόνο λατινικά πεζά, αριθμοί και παύλες" }
       - { name: desc, label: Περιγραφή, type: string }
       - { name: order, label: Σειρά στο μενού, type: number, default: 10 }
+      - name: featured
+        label: Κύρια ενότητα (αρχική σελίδα & «Τελευταία κείμενα»)
+        description: Μόνο μία κατηγορία πρέπει να το έχει επιλεγμένο. Τα άρθρα της εμφανίζονται στην αρχική και στο /articles/ αντί για το μενού.
+        type: boolean
+        default: false

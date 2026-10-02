@@ -37,6 +37,8 @@ Deployment runs via the GitHub Actions workflow in `.github/workflows/deploy.yml
 
 In Pages CMS, open **Κατηγορίες** and add one. Or by hand, create `_topics/<slug>.md` with `name`, `slug`, `desc` and `order` front matter. A `/<slug>/` listing page is generated automatically at build time. Use that same `slug` as the `topic:` value in a post's front matter to file it there. Changing a slug later does not update existing posts.
 
+One topic is marked `featured: true` (currently `_topics/essays.md`, "Δοκίμια"). Its posts are the only ones on the homepage and at `/articles/` ("Τελευταία κείμενα"); it gets no `/<slug>/` page and no nav link. All other topics show only on their own page. The featured topic's `name` can be renamed freely in Pages CMS; the code only looks at the flag.
+
 ## Deferred / not yet built
 
 - A "quote of the day" feature (in the original mockup, browser-local only). Could be reintroduced later as a static `_data/quotes.yml` picked by day-of-year, with no backend needed.

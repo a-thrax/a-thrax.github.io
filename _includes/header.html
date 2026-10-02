@@ -11,7 +11,9 @@
 
     <nav class="main-nav" aria-label="Κύρια πλοήγηση">
       {% for topic in site.topics %}
+      {% unless topic.featured %}
       <a href="{{ "/" | append: topic.slug | append: "/" | relative_url }}">{{ topic.name }}</a>
+      {% endunless %}
       {% endfor %}
       <a href="{{ "/about/" | relative_url }}">Σχετικά</a>
     </nav>

@@ -1,15 +1,17 @@
 ---
 layout: default
 ---
+{% assign essay_topic = site.topics | where: "featured", true | first %}
+{% assign essays = site.posts | where: "topic", essay_topic.slug %}
 <section class="featured-section">
   <div class="section-heading">
     <div>
-      <p class="eyebrow">Αρχείο</p>
+      <p class="eyebrow">{{ essay_topic.name | default: "Αρχείο" }}</p>
       <h2>{{ page.title }}</h2>
     </div>
   </div>
   <div class="article-grid">
-    {% for post in site.posts %}
+    {% for post in essays %}
       {% include article-card.html post=post %}
     {% else %}
       <p>Δεν υπάρχουν ακόμη κείμενα.</p>

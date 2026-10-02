@@ -6,6 +6,9 @@ module EnThraxei
     def generate(site)
       topics = site.collections["topics"]&.docs || []
       topics.each do |topic|
+        # The featured topic is listed at /articles/ instead.
+        next if topic.data["featured"]
+
         site.pages << build_page(site, topic)
       end
     end

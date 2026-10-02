@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-{% assign latest = site.posts.first %}
+{% assign essay_topic = site.topics | where: "featured", true | first %}
+{% assign latest = site.posts | where: "topic", essay_topic.slug | first %}
 <section class="hero">
   <p class="eyebrow">Κείμενα χωρίς βιασύνη</p>
   {% if latest %}
