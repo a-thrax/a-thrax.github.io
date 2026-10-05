@@ -5,3 +5,6 @@
 <link rel="apple-touch-icon" href="{{ "/assets/apple-touch-icon.png" | relative_url }}">
 {% feed_meta %}
 {% seo %}
+{% comment %}jekyll-seo-tag 2.9 merges og:description into the twitter:description tag, which Facebook ignores{% endcomment %}
+{% assign og_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncatewords: 100 %}
+<meta property="og:description" content="{{ og_description | escape }}" />
