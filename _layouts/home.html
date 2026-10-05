@@ -29,7 +29,7 @@ layout: default
   {% if home.quote and home.quote != "" %}
   <figure class="quote-card">
     <p class="eyebrow">Η ατάκα της ημέρας</p>
-    <blockquote>{{ home.quote }}</blockquote>
+    <blockquote>{{ home.quote | markdownify }}</blockquote>
     {% if home.quote_author and home.quote_author != "" %}<figcaption>— {{ home.quote_author }}</figcaption>{% endif %}
   </figure>
   {% endif %}
