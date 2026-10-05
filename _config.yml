@@ -28,7 +28,7 @@ social:
   name: "Εν Ιορδάνη"
   links:
     - https://www.facebook.com/profile.php?id=61595139090022      # Facebook page URL
-    # - https://www.instagram.com/TODO   # uncomment when the Instagram account is ready
+    - https://www.instagram.com/eniordani              # Instagram profile URL
 
 collections:
   topics:
