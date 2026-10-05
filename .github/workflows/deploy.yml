@@ -31,11 +31,13 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Strip photo metadata (GPS, camera info)
+      - name: Shrink images and strip photo metadata (GPS, camera info)
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends libimage-exiftool-perl
+          sudo apt-get install -y --no-install-recommends libimage-exiftool-perl imagemagick
           if [ -d _site/assets/images ]; then
+            find _site/assets/images -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) \
+              -exec mogrify -resize '1600x1600>' -quality 82 {} +
             exiftool -r -overwrite_original -all= -tagsfromfile @ -Orientation -ICC_Profile \
               -ext jpg -ext jpeg -ext png -ext webp -ext heic _site/assets/images
           fi

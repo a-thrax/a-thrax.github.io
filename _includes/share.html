@@ -1,0 +1,10 @@
+{% assign share_url = page.url | absolute_url %}
+{% capture share_text %}{{ page.title }} {{ share_url }}{% endcapture %}
+<div class="share" data-title="{{ page.title | escape }}" data-url="{{ share_url }}">
+  <span class="share-label">Μοιραστείτε:</span>
+  <button type="button" class="share-btn share-native" hidden>Κοινοποίηση</button>
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener">Facebook</a>
+  <a class="share-btn" href="viber://forward?text={{ share_text | url_encode | replace: "+", "%20" }}">Viber</a>
+  <a class="share-btn" href="https://wa.me/?text={{ share_text | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">WhatsApp</a>
+  <button type="button" class="share-btn share-copy">Αντιγραφή συνδέσμου</button>
+</div>

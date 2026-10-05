@@ -17,9 +17,18 @@ about: >
 url: "https://a-thrax.gr"
 baseurl: ""
 lang: el
+locale: el_GR
 timezone: Europe/Athens
 theme: null
-logo: /assets/social-image.jpg
+logo: /assets/logo.png
+author:
+  name: "Εν Ιορδάνη"
+  url: "https://a-thrax.gr/about/"
+social:
+  name: "Εν Ιορδάνη"
+  links:
+    - https://www.facebook.com/profile.php?id=61595139090022      # Facebook page URL
+    # - https://www.instagram.com/TODO   # uncomment when the Instagram account is ready
 
 collections:
   topics:
@@ -30,7 +39,11 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/social-image.jpg
+      image:
+        path: /assets/social-image-wide.jpg
+        width: 1200
+        height: 630
+        alt: "Εν Ιορδάνη"
 
 permalink: /:year-:month-:day-:title.html
 

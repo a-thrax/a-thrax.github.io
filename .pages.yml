@@ -1,6 +1,8 @@
 media:
   input: assets/images
   output: /assets/images
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe   # slugify uploaded filenames (no spaces, apostrophes or Greek letters)
 
 content:
   - name: posts
@@ -37,7 +39,11 @@ content:
         options:
           time: true
           format: yyyy-MM-dd HH:mm
-      - { name: excerpt, label: Περίληψη, type: text }
+      - name: excerpt
+        label: Περίληψη
+        description: Εμφανίζεται στις κάρτες, στη Google και στην προεπισκόπηση Facebook/Viber. Έως ~160 χαρακτήρες.
+        type: text
+        options: { maxlength: 160 }
       - { name: body, label: Κείμενο, type: rich-text }
 
   - name: topics
