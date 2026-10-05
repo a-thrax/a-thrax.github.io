@@ -62,3 +62,12 @@ content:
         description: Μόνο μία κατηγορία πρέπει να το έχει επιλεγμένο. Τα άρθρα της εμφανίζονται στην αρχική και στο /articles/ αντί για το μενού.
         type: boolean
         default: false
+
+  - name: home
+    label: Αρχική σελίδα
+    type: file
+    path: _data/home.yml
+    fields:
+      - { name: quote, label: Ατάκα της ημέρας, type: text }
+      - { name: quote_author, label: Ποιος το είπε (προαιρετικό), type: string }
+      - { name: recent_count, label: Πόσα άρθρα στα «Πρόσφατα», type: number, default: 5 }

@@ -98,6 +98,69 @@ h1 em { color:var(--green); font-weight:400; }
   margin:25px 0 30px;
 }
 .hero-actions { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+
+.home-top {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 340px;
+  gap:56px;
+  align-items:start;
+  padding-top:92px;
+}
+.home-top .hero { padding-top:0; }
+.home-side { padding-bottom:60px; }
+.quote-card {
+  position:relative;
+  margin:0;
+  background:var(--green-soft);
+  border-left:3px solid var(--green);
+  border-radius:13px;
+  padding:26px 26px 24px;
+  overflow:hidden;
+}
+.quote-card::before {
+  content:"\201C";
+  position:absolute;
+  top:-18px; right:14px;
+  font-family:"Libre Baskerville",serif;
+  font-size:120px;
+  line-height:1;
+  color:var(--green);
+  opacity:.14;
+}
+.quote-card blockquote {
+  margin:0;
+  font-family:"Libre Baskerville",serif;
+  font-style:italic;
+  font-size:19px;
+  line-height:1.55;
+  color:var(--blue-deep);
+}
+.quote-card figcaption { margin-top:12px; color:var(--muted); font-size:13px; }
+.recent-feed {
+  margin-top:18px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:22px 24px 8px;
+}
+.recent-feed ol { list-style:none; margin:0; padding:0; }
+.recent-feed li { padding:14px 0; border-top:1px solid var(--line); }
+.recent-feed li:first-child { border-top:0; padding-top:4px; }
+.recent-meta {
+  display:flex; justify-content:space-between; gap:12px;
+  color:var(--green); font-size:11px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.08em;
+  margin-bottom:6px;
+}
+.recent-meta time { color:var(--muted); }
+.recent-feed li a {
+  font-family:"Libre Baskerville",serif;
+  font-size:16px;
+  line-height:1.4;
+  color:var(--blue-deep);
+  text-decoration:none;
+}
+.recent-feed li a:hover { color:var(--green); }
 .primary-btn, .outline-btn {
   display:inline-block;
   border:1px solid var(--blue);
@@ -198,6 +261,8 @@ footer strong { color:var(--blue); font-family:"Libre Baskerville",serif; margin
   .site-header.nav-open .main-nav { display: flex; }
   .main-nav a { padding: 8px 0; width: 100%; }
   .article-grid { grid-template-columns:1fr; }
+  .home-top { grid-template-columns:1fr; gap:0; }
+  .home-top .hero { padding-bottom:40px; }
 }
 @media (max-width: 520px) {
   main { padding-left:17px; padding-right:17px; }
@@ -208,4 +273,5 @@ footer strong { color:var(--blue); font-family:"Libre Baskerville",serif; margin
   .hero h1 { font-size:32px; }
   .brand strong { font-size:36px; }
   .section-heading { align-items:flex-start; flex-direction:column; }
+  .home-top { padding-top:60px; }
 }

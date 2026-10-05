@@ -3,8 +3,9 @@ layout: default
 ---
 {% assign essay_topic = site.topics | where: "featured", true | first %}
 {% assign latest = site.posts | where: "topic", essay_topic.slug | first %}
+<div class="home-top">
 <section class="hero">
-  <p class="eyebrow">Κείμενα χωρίς βιασύνη</p>
+  <p class="eyebrow">{{ essay_topic.name | default: "Κείμενα χωρίς βιασύνη" }}</p>
   {% if latest %}
   {% assign title_words = latest.title | split: " " %}
   {% assign last_word = title_words | last %}
@@ -20,3 +21,34 @@ layout: default
   <p class="hero-text">{{ site.description }}</p>
   {% endif %}
 </section>
+
+{% assign home = site.data.home %}
+{% assign recent_count = home.recent_count | default: 5 %}
+{% assign recent = site.posts | where_exp: "p", "p.topic != essay_topic.slug" %}
+<aside class="home-side">
+  {% if home.quote and home.quote != "" %}
+  <figure class="quote-card">
+    <p class="eyebrow">Η ατάκα της ημέρας</p>
+    <blockquote>{{ home.quote }}</blockquote>
+    {% if home.quote_author and home.quote_author != "" %}<figcaption>— {{ home.quote_author }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+  {% if recent.size > 0 %}
+  <section class="recent-feed">
+    <p class="eyebrow">Πρόσφατα</p>
+    <ol>
+      {% for post in recent limit: recent_count %}
+      {% assign topic = site.topics | where: "slug", post.topic | first %}
+      <li>
+        <div class="recent-meta">
+          {% if topic %}<span>{{ topic.name }}</span>{% endif %}
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time>
+        </div>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+</aside>
+</div>
