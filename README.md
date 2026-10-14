@@ -39,6 +39,6 @@ In Pages CMS, open **Κατηγορίες** and add one. Or by hand, create `_to
 
 One topic is marked `featured: true` (currently `_topics/essays.md`, "Δοκίμια"). Its posts are the only ones on the homepage and at `/articles/` ("Τελευταία κείμενα"); it gets no `/<slug>/` page and no nav link. All other topics show only on their own page. The featured topic's `name` can be renamed freely in Pages CMS; the code only looks at the flag.
 
-## Deferred / not yet built
+## Adding a quote of the day
 
-- A "quote of the day" feature (in the original mockup, browser-local only). Could be reintroduced later as a static `_data/quotes.yml` picked by day-of-year, with no backend needed.
+In Pages CMS, open **Ατάκες** and add one. Or by hand, create `_quotes/YYYY-MM-DD-HHMM.md` with a `date: YYYY-MM-DD HH:MM` (and optional `author:`) in the front matter and the quote as the body; Markdown like `**bold**` works. The newest quote by `date` is shown on the homepage as «Η ατάκα της ημέρας», the next three under it, and all of them at `/quotes/`. Old quotes are never overwritten.

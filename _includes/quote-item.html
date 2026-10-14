@@ -1,0 +1,6 @@
+{% assign q = include.quote %}
+<li id="{{ q.date | date: "%Y-%m-%d-%H%M" }}">
+  <time datetime="{{ q.date | date_to_xmlschema }}">{{ q.date | date: "%d/%m/%Y" }}</time>
+  <blockquote>{{ q.content }}</blockquote>
+  {% if q.author and q.author != "" %}<p class="quote-author">— {{ q.author }}</p>{% endif %}
+</li>

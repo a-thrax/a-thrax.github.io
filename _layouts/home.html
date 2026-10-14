@@ -26,11 +26,24 @@ layout: default
 {% assign recent_count = home.recent_count | default: 5 %}
 {% assign recent = site.posts | where_exp: "p", "p.topic != essay_topic.slug" %}
 <aside class="home-side">
-  {% if home.quote and home.quote != "" %}
+  {% assign quotes = site.quotes | sort: "date" | reverse %}
+  {% assign quote = quotes.first %}
+  {% if quote %}
   <figure class="quote-card">
     <p class="eyebrow">Η ατάκα της ημέρας</p>
-    <blockquote>{{ home.quote | markdownify }}</blockquote>
-    {% if home.quote_author and home.quote_author != "" %}<figcaption>— {{ home.quote_author }}</figcaption>{% endif %}
+    <blockquote>{{ quote.content }}</blockquote>
+    {% if quote.author and quote.author != "" %}<figcaption>— {{ quote.author }}</figcaption>{% endif %}
+    {% if quotes.size > 1 %}
+    <details class="quote-more">
+      <summary>Περισσότερα</summary>
+      <ol class="quote-feed">
+        {% for q in quotes offset: 1 limit: 3 %}
+          {% include quote-item.html quote=q %}
+        {% endfor %}
+      </ol>
+      <a class="quote-feed-more" href="{{ "/quotes/" | relative_url }}">Όλες οι ατάκες →</a>
+    </details>
+    {% endif %}
   </figure>
   {% endif %}
   {% if recent.size > 0 %}

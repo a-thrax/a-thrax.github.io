@@ -69,11 +69,31 @@ content:
         type: boolean
         default: false
 
+  - name: quotes
+    label: Ατάκες
+    type: collection
+    path: _quotes
+    filename: "{year}-{month}-{day}-{hour}{minute}.md"
+    view:
+      fields: [body, date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: date
+        label: Ημερομηνία
+        description: Η πιο πρόσφατη ατάκα εμφανίζεται στην αρχική ως «Η ατάκα της ημέρας».
+        type: date
+        required: true
+        options:
+          time: true
+          format: yyyy-MM-dd HH:mm
+      - { name: author, label: Ποιος το είπε (προαιρετικό), type: string }
+      - { name: body, label: Ατάκα, type: text, required: true }
+
   - name: home
     label: Αρχική σελίδα
     type: file
     path: _data/home.yml
     fields:
-      - { name: quote, label: Ατάκα της ημέρας, type: text }
-      - { name: quote_author, label: Ποιος το είπε (προαιρετικό), type: string }
       - { name: recent_count, label: Πόσα άρθρα στα «Πρόσφατα», type: number, default: 5 }

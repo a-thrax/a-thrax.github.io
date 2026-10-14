@@ -1,0 +1,20 @@
+---
+layout: default
+title: Ατάκες
+---
+{% assign quotes = site.quotes | sort: "date" | reverse %}
+<section class="featured-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Η ατάκα της ημέρας</p>
+      <h2>{{ page.title }}</h2>
+    </div>
+  </div>
+  <ol class="quote-feed quote-archive">
+    {% for q in quotes %}
+      {% include quote-item.html quote=q %}
+    {% else %}
+      <li>Δεν υπάρχουν ακόμη ατάκες.</li>
+    {% endfor %}
+  </ol>
+</section>
