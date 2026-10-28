@@ -17,9 +17,36 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write # push the cleaned images back to main
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+      - name: Shrink images and strip photo metadata (GPS, camera info) in the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main # include uploads that landed while this run was queued
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libimage-exiftool-perl imagemagick optipng
+          find assets/images -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) -print0 |
+            while IFS= read -r -d '' f; do
+              read -r w h q < <(identify -format '%w %h %Q\n' "$f[0]")
+              big=$(( w > 1600 || h > 1600 ))
+              case "${f,,}" in
+                *.jpg|*.jpeg) if [ "$big" = 1 ] || [ "$q" -gt 85 ]; then mogrify -resize '1600x1600>' -quality 82 "$f"; fi ;;
+                *.webp)       if [ "$big" = 1 ]; then mogrify -resize '1600x1600>' -quality 82 "$f"; fi ;;
+                *.png)        if [ "$big" = 1 ]; then mogrify -resize '1600x1600>' "$f"; fi
+                              optipng -quiet -o2 "$f" ;;
+              esac
+            done
+          exiftool -r -overwrite_original -all= -tagsfromfile @ -Orientation -ICC_Profile \
+            -ext jpg -ext jpeg -ext png -ext webp assets/images
+          if [ -n "$(git status --porcelain assets/images)" ]; then
+            git add assets/images
+            git commit -m "Optimize images and strip metadata"
+            git push origin HEAD:main
+          fi
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -31,16 +58,6 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Shrink images and strip photo metadata (GPS, camera info)
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends libimage-exiftool-perl imagemagick
-          if [ -d _site/assets/images ]; then
-            find _site/assets/images -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) \
-              -exec mogrify -resize '1600x1600>' -quality 82 {} +
-            exiftool -r -overwrite_original -all= -tagsfromfile @ -Orientation -ICC_Profile \
-              -ext jpg -ext jpeg -ext png -ext webp -ext heic _site/assets/images
-          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
 
