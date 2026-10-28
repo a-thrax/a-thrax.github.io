@@ -28,7 +28,7 @@ excerpt: "Και κει που περπατάς στην Κομοτηνή τσο
 
 
 ![Bulgaria-SanStefano_-(1878)-byTodorBozhinov.png](/assets/images/bulgaria-sanstefano-1878-bytodorbozhinov.png)
-Τα σύνορα της Μεγάλης Βουλγαρίας σύμφωνα με τη συνθήκη του Αγίου Στεφάνου.*Χάρτης: Todor Bozhinov, Wikimedia Commons, άδεια [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Στο: [https://commons.wikimedia.org/wiki/File:Bulgaria-SanStefano_-(1878)-byTodorBozhinov.png](https://commons.wikimedia.org/wiki/File:Bulgaria-SanStefano_-(1878)-byTodorBozhinov.png)* 
+*Τα σύνορα της Μεγάλης Βουλγαρίας σύμφωνα με τη συνθήκη του Αγίου Στεφάνου.Χάρτης: Todor Bozhinov, Wikimedia Commons, άδεια [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Στο: [https://commons.wikimedia.org/wiki/File:Bulgaria-SanStefano_-(1878)-byTodorBozhinov.png](https://commons.wikimedia.org/wiki/File:Bulgaria-SanStefano_-(1878)-byTodorBozhinov.png)* 
 
 Και κάπου εδώ έρχεται το ερώτημα: Ποια είναι η συμμετοχή, η εμπλοκή, το συμφέρον ή το όφελος που αποκόμισε η Ελλάδα ώστε να έχει γίνει οδός και να τιμάται η συνθήκη του Αγίου Στεφάνου στη χώρα μας; Απολύτως κανένα! Το Ελληνικό Βασίλειο όχι μόνο δεν συμμετείχε στις ταραχές και στους πολέμους που ακολούθησαν την τριετία του αναβρασμού, αλλά βρέθηκε και ζημιωμένο από τις προβλέψεις της Συνθήκης του Αγίου Στεφάνου, καθώς αυτή προέβλεπε την πραγμάτωση του εθνικού ιδεώδους ενός κράτους που, στο πλαίσιο των εθνικών ανταγωνισμών εκείνης της εποχής, αποτελούσε εχθρό της Ελλάδας - δηλαδή, της Βουλγαρίας.  
 
