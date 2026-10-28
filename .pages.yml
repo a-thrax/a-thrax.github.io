@@ -44,7 +44,10 @@ content:
         description: Εμφανίζεται στις κάρτες, στη Google και στην προεπισκόπηση Facebook/Viber. Έως ~160 χαρακτήρες.
         type: text
         options: { maxlength: 160 }
-      - { name: body, label: Κείμενο, type: rich-text }
+      - name: body
+        label: Κείμενο
+        description: "Λεζάντα εικόνας: γράψτε τη στην αμέσως επόμενη γραμμή κάτω από την εικόνα και κάντε όλη τη γραμμή πλάγια (italic)."
+        type: rich-text
 
   - name: topics
     label: Κατηγορίες
