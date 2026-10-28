@@ -268,6 +268,9 @@ h1 em { color:var(--green); font-weight:400; }
 .post-content img.medium { margin-left: auto; margin-right: auto; }
 .post-content img.small { width: 20%; }
 .post-content img.medium { width: 50%; }
+.post-content figure { margin: 10px 0 22px; }
+.post-content figure img { margin-bottom: 8px; }
+.post-content figcaption { font-size: 14px; line-height: 1.5; color: var(--muted); font-style: italic; text-align: center; }
 .post .article-meta { margin-top: 10px; }
 
 .share { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:18px 0; border-top:1px solid var(--line); }

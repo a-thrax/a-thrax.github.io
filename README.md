@@ -31,6 +31,7 @@ Deployment runs via the GitHub Actions workflow in `.github/workflows/deploy.yml
 - `_includes/` — shared partials (head, header, footer, article card).
 - `assets/` — CSS, JS, images.
 - `.pages.yml` — [Pages CMS](https://pagescms.org) config: the editing UI for articles and categories.
+- `_plugins/figure_captions.rb` — an image followed by a fully italic line becomes a `<figure>` with that line as its `<figcaption>`.
 - `template/` — the original ChatGPT-generated design mockup this theme was extracted from. Kept for reference; excluded from the build.
 
 ## Adding a new category

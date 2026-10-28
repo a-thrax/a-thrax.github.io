@@ -48,6 +48,8 @@ If you want to include a photo:
 1. Go to the `assets/images` folder, click **Add file → Upload files**, and upload your image.
 2. In your article, reference it like this: `![description](/assets/images/your-file-name.jpg)`
 
+To add a caption (e.g. a description or the photo's source), write it on the line right below the image and make the whole line italic: `*Πηγή: Wikipedia*`. In Pages CMS, just type it under the image and press the italic button. It's shown smaller and centred under the image.
+
 Tip: if the photo is very large (e.g. straight off a phone), resize it to around 2000px on the longest side before uploading. It'll load faster for readers and the page will still look great.
 
 ## 6b. Add a video (optional)
