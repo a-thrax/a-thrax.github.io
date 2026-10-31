@@ -23,6 +23,8 @@ module EnThraxei
         "title" => topic.data["name"],
         "topic_slug" => topic.data["slug"]
       )
+      desc = topic.data["desc"].to_s.strip
+      page.data["description"] = desc unless desc.empty?
       page
     end
   end

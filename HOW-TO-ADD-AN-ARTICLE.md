@@ -36,7 +36,9 @@ That top section (between the two `---` lines) is called "front matter". Edit on
 | `title` | The article's title, in Greek, in quotes. |
 | `topic` | The category, written as its English slug. The available ones are the file names in the `_topics` folder, without `.md` (e.g. `_topics/travel.md` → `travel`). This decides where the article shows up: articles in the essays topic (`essays`) appear on the homepage and under "Τελευταία κείμενα"; every other topic appears only on its own category page. |
 | `date` | Optional. Publication date and time, e.g. `2026-10-02 18:30` (Greek time). Without it, the date in the file name is used. |
-| `excerpt` | A one- or two-sentence summary, in Greek, in quotes. Shown on the article cards (and on the homepage for essays). |
+| `excerpt` | A one- or two-sentence summary, in Greek, in quotes. Shown on the article cards (and on the homepage for essays), and used as the description in Google and link previews, so keep it under ~160 characters. |
+
+If you later make a substantial edit to a published article, add `last_modified_at: 2026-11-05 10:00` (the edit's date and time) under `date`. Google and the sitemap then know the article was updated. Never leave it empty (`last_modified_at: ""`): either give a date or leave the line out.
 
 ## 5. Write the article
 
@@ -46,7 +48,7 @@ Below the second `---` line, delete the placeholder text and write your article 
 
 If you want to include a photo:
 1. Go to the `assets/images` folder, click **Add file → Upload files**, and upload your image.
-2. In your article, reference it like this: `![description](/assets/images/your-file-name.jpg)`
+2. In your article, reference it like this: `![description](/assets/images/your-file-name.jpg)`. Write a short Greek description of what the image shows inside the square brackets (not the file name). Google and screen readers use it.
 
 To add a caption (e.g. a description or the photo's source), write it on the line right below the image and make the whole line italic: `*Πηγή: Wikipedia*`. In Pages CMS, just type it under the image and press the italic button. It's shown smaller and centred under the image.
 

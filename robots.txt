@@ -1,0 +1,16 @@
+---
+layout: null
+sitemap: false
+---
+User-agent: *
+Allow: /
+
+# AI training crawlers (search/citation bots stay allowed)
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: Applebot-Extended
+Disallow: /
+
+Sitemap: {{ "/sitemap.xml" | absolute_url }}
