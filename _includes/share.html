@@ -2,9 +2,12 @@
 {% capture share_text %}{{ page.title }} {{ share_url }}{% endcapture %}
 <div class="share" data-title="{{ page.title | escape }}" data-url="{{ share_url }}">
   <span class="share-label">Μοιραστείτε:</span>
-  <button type="button" class="share-btn share-native" hidden>Κοινοποίηση</button>
-  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener">Facebook</a>
-  <a class="share-btn" href="viber://forward?text={{ share_text | url_encode | replace: "+", "%20" }}">Viber</a>
-  <a class="share-btn" href="https://wa.me/?text={{ share_text | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">WhatsApp</a>
-  <button type="button" class="share-btn share-copy">Αντιγραφή συνδέσμου</button>
+  <div class="share-buttons" role="group" aria-label="Κοινοποίηση">
+    <button type="button" class="share-btn share-native" aria-label="Κοινοποίηση" title="Κοινοποίηση" hidden>{% include icons/share.svg %}</button>
+    <a class="share-btn share-btn--facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Κοινοποίηση στο Facebook" title="Facebook">{% include icons/facebook.svg %}</a>
+    <a class="share-btn share-btn--viber" href="viber://forward?text={{ share_text | url_encode | replace: "+", "%20" }}" aria-label="Κοινοποίηση στο Viber" title="Viber">{% include icons/viber.svg %}</a>
+    <a class="share-btn share-btn--whatsapp" href="https://wa.me/?text={{ share_text | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener noreferrer" aria-label="Κοινοποίηση στο WhatsApp" title="WhatsApp">{% include icons/whatsapp.svg %}</a>
+    <button type="button" class="share-btn share-copy" aria-label="Αντιγραφή συνδέσμου" title="Αντιγραφή συνδέσμου" hidden>{% include icons/link.svg %}{% include icons/check.svg %}</button>
+  </div>
+  <span class="share-status visually-hidden" role="status"></span>
 </div>

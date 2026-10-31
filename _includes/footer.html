@@ -5,7 +5,13 @@
     </div>
     <nav class="footer-social">
         {% for link in site.social.links %}{% unless link contains "TODO" %}
-        <a href="{{ link }}" target="_blank" rel="me noopener">{% if link contains "facebook" %}Facebook{% elsif link contains "instagram" %}Instagram{% else %}{{ link }}{% endif %}</a>
+        {% if link contains "facebook" %}
+        <a class="footer-icon" href="{{ link }}" target="_blank" rel="me noopener" aria-label="{{ site.title }} στο Facebook" title="Facebook">{% include icons/facebook.svg %}</a>
+        {% elsif link contains "instagram" %}
+        <a class="footer-icon" href="{{ link }}" target="_blank" rel="me noopener" aria-label="{{ site.title }} στο Instagram" title="Instagram">{% include icons/instagram.svg %}</a>
+        {% else %}
+        <a href="{{ link }}" target="_blank" rel="me noopener">{{ link }}</a>
+        {% endif %}
         {% endunless %}{% endfor %}
         <span>© <span>{{ site.time | date: "%Y" }}</span></span>
     </nav>

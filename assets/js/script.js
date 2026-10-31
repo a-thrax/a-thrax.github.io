@@ -18,12 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     const copyBtn = share.querySelector(".share-copy");
-    copyBtn.addEventListener("click", () => {
-      navigator.clipboard.writeText(url).then(() => {
-        const label = copyBtn.textContent;
-        copyBtn.textContent = "Αντιγράφηκε!";
-        setTimeout(() => { copyBtn.textContent = label; }, 2000);
+    const status = share.querySelector(".share-status");
+    if (navigator.clipboard) {
+      copyBtn.hidden = false;
+      copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(url).then(() => {
+          copyBtn.classList.add("is-copied");
+          status.textContent = "Ο σύνδεσμος αντιγράφηκε";
+          setTimeout(() => {
+            copyBtn.classList.remove("is-copied");
+            status.textContent = "";
+          }, 2000);
+        }).catch(() => {});
       });
-    });
+    }
   }
 });
