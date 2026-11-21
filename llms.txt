@@ -1,0 +1,32 @@
+---
+layout: null
+sitemap: false
+---
+{%- assign about = site.pages | where: "url", "/about/" | first -%}
+{%- assign quotes = site.pages | where: "url", "/quotes/" | first -%}
+# {{ site.title }}
+
+> {{ site.description }}
+
+Ελληνόφωνο ιστολόγιο. Συγγραφέας: «{{ site.author.name }}». Παρακαλούμε, παραπέμπετε με σύνδεσμο στο πρωτότυπο.
+(Greek-language blog; please cite with a link to the original.)
+
+## Σχετικά
+
+- [{{ about.title }}]({{ about.url | absolute_url }}): {{ about.description }}
+{%- for topic in site.topics %}
+{%- assign topic_posts = site.posts | where: "topic", topic.slug -%}
+{%- if topic_posts.size > 0 %}
+
+## {{ topic.name }}
+{% for post in topic_posts %}
+- [{{ post.title | strip }}]({{ post.url | absolute_url }}): {{ post.excerpt | strip_html | normalize_whitespace | strip }}
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+
+## Optional
+
+- [{{ quotes.title }}]({{ quotes.url | absolute_url }}): {{ quotes.description }}
+- [Atom feed (πλήρη κείμενα)]({{ "/feed.xml" | absolute_url }})
+- [Sitemap]({{ "/sitemap.xml" | absolute_url }})

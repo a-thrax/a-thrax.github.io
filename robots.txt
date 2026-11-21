@@ -2,15 +2,24 @@
 layout: null
 sitemap: false
 ---
+# Search, citation and user-triggered fetchers (e.g. OAI-SearchBot,
+# Claude-SearchBot, PerplexityBot, ChatGPT-User, Claude-User) are allowed.
 User-agent: *
 Allow: /
 
-# AI training crawlers (search/citation bots stay allowed)
+# AI training crawlers are not allowed.
 User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: Google-Extended
 User-agent: CCBot
 User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: Bytespider
+Disallow: /
+
+# Cross-vendor AI-training opt-out (Google, Microsoft, OpenAI, Anthropic;
+# IETF draft-kelley-aipref-training-preference-signal). A preference, not a block.
+User-agent: __usage_ai-training
 Disallow: /
 
 Sitemap: {{ "/sitemap.xml" | absolute_url }}
