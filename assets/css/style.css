@@ -336,7 +336,7 @@ footer {
   border-top:1px solid var(--line); color:var(--muted); font-size:12px;
 }
 footer strong { color:var(--blue); font-family:"Libre Baskerville",serif; margin-right:12px; }
-.footer-social { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.footer-social { display:flex; flex-shrink:0; align-items:center; gap:8px; }
 .footer-social a { color:var(--muted); text-decoration:none; font-weight:600; }
 .footer-social a:hover { color:var(--green); }
 .footer-icon { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; }
@@ -375,5 +375,6 @@ footer strong { color:var(--blue); font-family:"Libre Baskerville",serif; margin
   .brand strong { font-size:36px; }
   .section-heading { align-items:flex-start; flex-direction:column; }
   .home-top { padding-top:60px; }
-  footer { flex-direction:column; align-items:flex-start; gap:12px; padding-left:17px; padding-right:17px; }
+  footer { align-items:center; gap:12px; padding-left:17px; padding-right:17px; }
+  footer strong { display:block; margin-right:0; margin-bottom:4px; }
 }
